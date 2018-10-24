@@ -3,6 +3,8 @@ package com.elissonsilva.lanchonete.estrutura;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import com.elissonsilva.lanchonete.negocio.LanPromocao;
+
 public class LanLanche {
 
 	private String nome;

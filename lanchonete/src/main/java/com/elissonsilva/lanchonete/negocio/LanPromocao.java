@@ -1,6 +1,10 @@
-package com.elissonsilva.lanchonete.estrutura;
+package com.elissonsilva.lanchonete.negocio;
 
 import java.util.Iterator;
+
+import com.elissonsilva.lanchonete.estrutura.LanEstrutura;
+import com.elissonsilva.lanchonete.estrutura.LanIngrediente;
+import com.elissonsilva.lanchonete.estrutura.LanLanche;
 
 public class LanPromocao {
 
