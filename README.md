@@ -15,9 +15,10 @@ _Essas versões foram as utilizadas no desenvolvimento_
 Como executar o projeto
 ------------------
 
-1) Faça o build do projeto Java: `mvn build`
-2) Faça o build das imagens docker: `docker-composer build`
-3) Dispare os containers: `docker-composer up`
-4) Acesse http://localhost/
+1) Faça o build do projeto Java _(dentro pasta *lanchonete*)_: `mvn install`
+2) Copie o arquivo `lanchonete.war` _(gerado na etapa anterior)_ para dentro da pasta `docker_lanchonete`
+3) Faça o build das imagens docker: `docker-composer build`
+4) Dispare os containers: `docker-composer up`
+5) Acesse http://localhost/
 
 

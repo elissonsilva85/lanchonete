@@ -1,7 +1,7 @@
 FROM tomcat:8.0
 MAINTAINER Elisson Silva <elisson.silva@thomsonreuters.com>
 
-COPY lanchonete /usr/local/tomcat/webapps/lanchonete
+COPY lanchonete.war /usr/local/tomcat/webapps
 
 COPY config /usr/local/tomcat/conf
 
