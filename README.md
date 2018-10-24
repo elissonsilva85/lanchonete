@@ -1,2 +1,5 @@
-# lanchonete
-Programa de avaliação de código
+# Lanchonete
+Programa de avaliação de código.
+------------------
+
+

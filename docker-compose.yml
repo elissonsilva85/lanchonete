@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+    reverseproxy:
+        build: ./reverseproxy
+        container_name: reverseproxy
+        restart: always
+        ports:
+            - "8080:80"
+
+    lanchonete:
+        build: ./lanchonete
+        container_name: lanchonete
+        restart: always
+        ports:
+            - "8081:8081"
+        depends_on:
+            - reverseproxy
