@@ -1,5 +1,6 @@
 package com.elissonsilva.lanchonete.estrutura;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LanEstrutura {
@@ -7,6 +8,8 @@ public class LanEstrutura {
 	private static HashMap<String,LanIngrediente> todosIngredientes;
 	
 	private static HashMap<String,LanLanche> todosLanches;
+	
+	private static boolean estruturaCriada = false;
 	
 	public static String ALFACE = "Alface";
 	public static String BACON = "Bacon";
@@ -28,6 +31,10 @@ public class LanEstrutura {
 	
 	public static LanIngrediente getIngrediente(String nome) {
 		return todosIngredientes.get(nome);
+	}
+	
+	public static ArrayList<LanIngrediente> getIngredientes() {
+		return new ArrayList<LanIngrediente>(todosIngredientes.values());
 	}
 	
 	public static void alterarValor(String nome, double novoValor) throws LanException{
@@ -55,7 +62,15 @@ public class LanEstrutura {
 		todosLanches.put(lanche.getNome(), lanche);
 	}
 	
+	public static ArrayList<LanLanche> getLanches() {
+		return new ArrayList<LanLanche>(todosLanches.values());
+	}
+	
 	public static void preparaEstruturaInicial() throws LanException {
+		
+		if(estruturaCriada) return;
+		
+		estruturaCriada = true;
 		
 		addIngrediente(new LanIngrediente(ALFACE,0.4));
 		addIngrediente(new LanIngrediente(BACON,2.0));
