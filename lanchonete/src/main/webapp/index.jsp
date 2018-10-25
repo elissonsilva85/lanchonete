@@ -15,11 +15,11 @@
 
 <div class="container p-4">
 
-  <div class="row mt-5">
+  <div class="row">
     <h5 class="display-4">Lanchonete</h5>
   </div>	
 	
-  <div class="row mt-5">
+  <div class="row mt-3">
     <div class="col-sm">
       <%= layout.mostraIngredientes() %>
     </div>
@@ -29,32 +29,44 @@
   </div>	
   
   <div class="row mt-5">
-    <h6 class="display-4">Pedido</h6>
+    <h6 class="display-4">Monte seu lanche:</h6>
   </div>
-  <div class="row">
-	<form>
-	  <div class="form-group row">
-	    <label for="quantidade" class="col-sm-2 col-form-label">Quantidade</label>
-	    <div class="col-sm-10">
-	      <input type="number" class="form-control" id="quantidade">
-	    </div>
-	  </div>
-	  <div class="form-group row">
-	    <label for="lanche" class="col-sm-2 col-form-label">Lanche</label>
-	    <div class="col-sm-10">
-	      <select id="lanche" class="form-control form-control-lg">
-		    <option>Large select</option>
-		  </select>
-	    </div>
-	  </div>
-	</form>
+  <div class="row mt-3">
+    <table class="table">
+	    <thead>
+		    <tr>
+  		      <th>Ingrediente</th>
+		      <th>Valor</th>
+		      <th><button type="button" class="btn btn-outline-success">Adicionar Ingrediente</button></th>
+		    </tr>
+	    </thead>
+	    <tbody>
+		    <tr>
+		      <td>
+			    <div class="row">
+			    <form>
+				    <div class="col-12"><input type="number" class="form-control" id="quantidade"></div>
+				    <div class="col-12"><label class="col-form-label">x</label></div>
+				    <div class="col-12"><select id="ingrediente" class="form-control">
+				      <%= layout.mostraOpcoesIngredientes() %>
+				    </select></div>
+				</form>
+				</div>
+			  </td>
+		      <td>R$ 3,00</td>
+		      <td><button type="button" class="btn btn-outline-danger">Remover Ingrediente</button></td>
+		    </tr>
+	    </tbody>
+	    <tfoot>
+		    <tr>
+		      <td>X, Y, Z</td>
+		      <td>R$ 30,00</td>
+		      <td><button type="button" class="btn btn-secondary">PEDIR LANCHE</button></td>
+		    </tr>
+	    </tfoot>
+    </table>
   </div>
-	
-	
-
 
 </div>
-
-
 </body>
 </html>

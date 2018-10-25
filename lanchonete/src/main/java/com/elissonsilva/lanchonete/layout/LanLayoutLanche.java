@@ -18,6 +18,7 @@ public class LanLayoutLanche extends LanLayoutBasic {
 		String html = "<tr>";
 		html += "<td>"+lanche.getNome()+"</td>";
 		html += "<td>"+mostraIngredientes()+"</td>";
+		html += "<td>"+formataMoeda(lanche.getPrecoIngredientes())+"</td>";
 		html += "</tr>";
 		
 		return html;

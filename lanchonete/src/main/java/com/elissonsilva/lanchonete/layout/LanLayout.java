@@ -30,13 +30,31 @@ public class LanLayout {
 		return tabela;
 	}
 	
+	public String mostraOpcoesIngredientes() {
+		
+		String tabela = "<option value=\"0\">Selecione um ingrediente</option>";
+		
+		Iterator<LanIngrediente> ingredientes = LanEstrutura.getIngredientes().iterator();
+		while(ingredientes.hasNext())
+		{
+			LanLayoutIngrediente layout = new LanLayoutIngrediente(ingredientes.next());
+			tabela += layout.mostraOpcao();
+		}
+		
+		tabela += "</tbody></table>";
+		
+		return tabela;
+	}
+	
+	
+	
 	public String mostraLanches() {
 		
 		String tabela = "<table class=\"table\">";
 		
 		tabela += "<thead><tr>";
 		tabela += "  <th>Lanche</th>";
-		tabela += "  <th>Ingredientes</th>";
+		tabela += "  <th colspan=\"2\">Ingredientes</th>";
 		tabela += "</tr></thead>";
 		tabela += "<tbody>";
 		

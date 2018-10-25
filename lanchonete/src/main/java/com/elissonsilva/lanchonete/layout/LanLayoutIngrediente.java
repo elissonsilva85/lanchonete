@@ -19,5 +19,12 @@ public class LanLayoutIngrediente extends LanLayoutBasic {
 		
 		return html;
 	}
+	
+    public String mostraOpcao() {
+		
+		String html = "<option>" + ingrediente.getNome() + "</option>";
+		
+		return html;
+	}
 
 }
