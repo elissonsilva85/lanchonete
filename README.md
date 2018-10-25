@@ -50,7 +50,7 @@ Considerações sobre arquivos e classes
 Considerações sobre o projeto
 ------------------
 
-* Optei por cirar uma classe especifica para as promoções para isolar a regra de negocio da estrutura do lanche. Caberia até uma implementação de herança de forma que a regra de promoção fosse uma base para a classe do Lanche.
+* Optei por criar uma classe especifica para as promoções para isolar a regra de negocio da estrutura do lanche. Caberia até uma implementação de herança de forma que a regra de promoção fosse uma base para a classe do Lanche.
 * A classe de testes unitário verifica se a classe de estrutura dos Ingredientes e Lanche está funcionando corretamente, verifica o valor do lanche baseado nos ingredientes e verifica o valor dos lanches em cada uma das promoçoes.
 * 
 
