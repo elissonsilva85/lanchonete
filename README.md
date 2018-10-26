@@ -15,11 +15,14 @@ _Essas versões foram as utilizadas no desenvolvimento_
 Como executar o projeto
 ------------------
 
+Se desejar recompilar o projeto Java:
 1) Faça o build do projeto Java _(dentro pasta *lanchonete*)_: `mvn install`
 2) Copie o arquivo `lanchonete.war` _(gerado na etapa anterior)_ para dentro da pasta `docker_lanchonete`
-3) Faça o build das imagens docker: `docker-composer build`
-4) Dispare os containers: `docker-composer up`
-5) Acesse http://localhost/
+
+Para rodar os conteiners:
+1) Faça o build das imagens docker: `docker-composer build`
+2) Dispare os containers: `docker-composer up`
+3) Acesse http://localhost/
 
 Considerações sobre arquivos e classes
 ------------------
@@ -52,8 +55,9 @@ Considerações sobre o projeto
 
 * Aproveitei o projeto e pesquisei um pouco sobre AngularJS e apliquei alguns conceitos no layout.
 * Estou usando AngularJS para atualizar os valores na parte do *Monte seu Lanche*.
-* Optei por criar uma classe especifica para as promoções para isolar a regra de negocio da estrutura do lanche. Caberia até uma implementação de herança de forma que a regra de promoção fosse uma base para a classe do Lanche.
-* A classe de testes unitário verifica se a classe de estrutura dos Ingredientes e Lanche está funcionando corretamente, verifica o valor do lanche baseado nos ingredientes e verifica o valor dos lanches em cada uma das promoçoes.
+* Optei por criar uma classe especifica para as promoções para isolar a regra de negocio da estrutura do lanche. Um possibilidade seria implementar herança nas classes de forma que o `LanLanche` fosse um filho da classe `LanPromocal`, dessa forma o lanche herdaria as propriedades de promoção.
+* A classe de testes unitário verifica se a classe de estrutura dos Ingredientes e Lanche está funcionando corretamente, verifica o valor do lanche baseado nos ingredientes e verifica o valor dos lanches em cada uma das promoções.
+* Comecei todas as classes com `Lan` apenas como uma boa pratica para organizar as classes do projeto.
 
 Estrutura Inicial
 ------------------
