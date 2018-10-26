@@ -10,7 +10,7 @@ public class LanLayout {
 
 	public String mostraIngredientes() {
 		
-		String tabela = "<table class=\"table\">";
+		String tabela = "<table class=\"table table-hover table-sm\">";
 		
 		tabela += "<thead><tr>";
 		tabela += "  <th>Ingrediente</th>";
@@ -32,25 +32,27 @@ public class LanLayout {
 	
 	public String mostraOpcoesIngredientes() {
 		
-		String tabela = "<option value=\"0\">Selecione um ingrediente</option>";
+		String opcoes = "[";
 		
 		Iterator<LanIngrediente> ingredientes = LanEstrutura.getIngredientes().iterator();
 		while(ingredientes.hasNext())
 		{
+			if(opcoes.length() > 1) opcoes += ", ";
+			
 			LanLayoutIngrediente layout = new LanLayoutIngrediente(ingredientes.next());
-			tabela += layout.mostraOpcao();
+			opcoes += layout.mostraOpcao();
 		}
 		
-		tabela += "</tbody></table>";
+		opcoes += "]";
 		
-		return tabela;
+		return opcoes;
 	}
 	
 	
 	
 	public String mostraLanches() {
 		
-		String tabela = "<table class=\"table\">";
+		String tabela = "<table class=\"table table-hover table-sm\">";
 		
 		tabela += "<thead><tr>";
 		tabela += "  <th>Lanche</th>";

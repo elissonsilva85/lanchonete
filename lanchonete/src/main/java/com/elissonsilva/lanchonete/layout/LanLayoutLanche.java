@@ -35,5 +35,13 @@ public class LanLayoutLanche extends LanLayoutBasic {
 		
 		return retorno;
 	}
+	public String getPreco() {
+		return formataMoeda(lanche.getPrecoPromocao());
+	}
+	public String getDesconto() {
+		double desconto = lanche.getPrecoIngredientes() - lanche.getPrecoPromocao();
+		
+		return (desconto > 0 ? formataMoeda(desconto) : "" );
+	}
 
 }

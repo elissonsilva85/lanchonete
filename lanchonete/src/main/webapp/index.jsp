@@ -3,13 +3,16 @@
 <% LanEstrutura.preparaEstruturaInicial(); %>
 <% LanLayout layout = new LanLayout(); %>
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" ng-app="lanchoneteApp" ng-controller="LanchoneteController">
 <head>
 	<title>Lanchonete</title>
 	<link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<link href="./css/bootstrap-grid.min.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="./js/angular.min.js"></script>
+	<script type="text/javascript" src="./js/lanchonete.js"></script>
+	<style>
+	.ocultar { display: none }
+	</style>
 </head>
 <body>
 
@@ -29,39 +32,36 @@
   </div>	
   
   <div class="row mt-5">
-    <h6 class="display-4">Monte seu lanche:</h6>
+    <h6 class="display-4">Monte seu lanche</h6>
   </div>
   <div class="row mt-3">
-    <table class="table">
+    <table class="table table-hover">
 	    <thead>
 		    <tr>
   		      <th>Ingrediente</th>
 		      <th>Valor</th>
-		      <th><button type="button" class="btn btn-outline-success">Adicionar Ingrediente</button></th>
+		      <th><button type="button" class="btn btn-outline-success" ng-click="adicionaIngrediente()">Adicionar Ingrediente</button></th>
 		    </tr>
 	    </thead>
 	    <tbody>
-		    <tr>
+		    <tr ng-repeat="ing in lanchePersonalizado" >
 		      <td>
-			    <div class="row">
-			    <form>
-				    <div class="col-12"><input type="number" class="form-control" id="quantidade"></div>
-				    <div class="col-12"><label class="col-form-label">x</label></div>
-				    <div class="col-12"><select id="ingrediente" class="form-control">
-				      <%= layout.mostraOpcoesIngredientes() %>
+			    <form class="form-inline">
+				    <div class="form-group mb-2"><input type="number" class="form-control" id="quantidade" ng-model="ing.qtde" placeholder="Qtde" style="width: 5em"></div>
+				    <div class="form-group mx-sm-3 mb-2"><label class="col-form-label">x</label></div>
+				    <div class="form-group mb-2"><select id="ingrediente" class="form-control" ng-model="ing.nome">
+				      <option ng-repeat="opcao in ingredientes">{{opcao.nome}}</option>
 				    </select></div>
 				</form>
-				</div>
 			  </td>
-		      <td>R$ 3,00</td>
-		      <td><button type="button" class="btn btn-outline-danger">Remover Ingrediente</button></td>
+		      <td><div class="pt-2"><span ng-bind="buscaPreco(ing.qtde, ing.nome)"></span></div></td>
+		      <td><button type="button" class="btn btn-outline-danger" ng-class="{ ocultar: lanchePersonalizado.length <= 1 }" ng-click="removerIngrediente($index)">Remover Ingrediente</button></td>
 		    </tr>
 	    </tbody>
 	    <tfoot>
-		    <tr>
-		      <td>X, Y, Z</td>
-		      <td>R$ 30,00</td>
-		      <td><button type="button" class="btn btn-secondary">PEDIR LANCHE</button></td>
+		      <td></td>
+		      <td><strong ng-bind="precoFinal">-</strong><small ng-class="{ 'text-muted': true, ocultar: descontoFinal == '' }" ><br>(desconto <span ng-bind="descontoFinal"></span>)</small></td>
+		      <td><button type="button" class="btn btn-secondary" ng-click="atualizaPrecoFinal()">PEDIR LANCHE</button></td>
 		    </tr>
 	    </tfoot>
     </table>

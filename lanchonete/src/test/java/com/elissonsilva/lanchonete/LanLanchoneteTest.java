@@ -11,6 +11,7 @@ import com.elissonsilva.lanchonete.estrutura.LanEstrutura;
 import com.elissonsilva.lanchonete.estrutura.LanException;
 import com.elissonsilva.lanchonete.estrutura.LanIngrediente;
 import com.elissonsilva.lanchonete.estrutura.LanLanche;
+import com.elissonsilva.lanchonete.negocio.LanMontaLanche;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LanLanchoneteTest {
@@ -138,6 +139,22 @@ public class LanLanchoneteTest {
 	}
 	
 	@Test
+	public void test_008_PromocaoMuitaCarne4() {
+
+		ArrayList<LanIngrediente> ingredientes = new ArrayList<LanIngrediente>();
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.ALFACE)); // 1
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.BACON)); // 2
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.HAMBURGUER)); // 4
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.HAMBURGUER)); // 4
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.HAMBURGUER)); // 4
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.HAMBURGUER)); // 4
+		
+		LanLanche lanche = new LanLanche("X-Teste", ingredientes);
+		
+		Assert.assertEquals(15, lanche.getPrecoPromocao(), 0);		
+	}
+	
+	@Test
 	public void test_008_PromocaoMuitaCarne6() {
 
 		ArrayList<LanIngrediente> ingredientes = new ArrayList<LanIngrediente>();
@@ -185,6 +202,22 @@ public class LanLanchoneteTest {
 	}
 	
 	@Test
+	public void test_011_PromocaoMuitoQueijo4() {
+
+		ArrayList<LanIngrediente> ingredientes = new ArrayList<LanIngrediente>();
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.ALFACE)); // 1
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.BACON)); // 2
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.QUEIJO)); // 5
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.QUEIJO)); // 5
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.QUEIJO)); // 5
+		ingredientes.add(LanEstrutura.getIngrediente(LanEstrutura.QUEIJO)); // 5
+		
+		LanLanche lanche = new LanLanche("X-Teste", ingredientes);
+		
+		Assert.assertEquals(18, lanche.getPrecoPromocao(), 0);		
+	}
+	
+	@Test
 	public void test_011_PromocaoMuitoQueijo6() {
 
 		ArrayList<LanIngrediente> ingredientes = new ArrayList<LanIngrediente>();
@@ -219,4 +252,44 @@ public class LanLanchoneteTest {
 		
 		Assert.assertEquals(19.8, lanche.getPrecoPromocao(), 0); // Total 22 - 10% = 19.8		
 	}
+	
+	@Test
+	public void test_013_MontaLanche0() {
+		
+		LanMontaLanche montaLanche = new LanMontaLanche();
+		
+		montaLanche.defineIngredientes("[{\"nome\":\"\",\"qtde\":null}]");
+		
+		LanLanche lanche = montaLanche.retornaLanche();
+		
+		Assert.assertNotNull(lanche);		
+		Assert.assertEquals(0, lanche.getIngredientes().size());
+	}
+	
+	@Test
+	public void test_013_MontaLanche1() {
+		
+		LanMontaLanche montaLanche = new LanMontaLanche();
+		
+		montaLanche.defineIngredientes("[{\"nome\":\"Alface\",\"qtde\":1}]");
+		
+		LanLanche lanche = montaLanche.retornaLanche();
+		
+		Assert.assertNotNull(lanche);		
+		Assert.assertEquals(1, lanche.getIngredientes().size());
+	}
+	
+	@Test
+	public void test_013_MontaLanche2() {
+		
+		LanMontaLanche montaLanche = new LanMontaLanche();
+		
+		montaLanche.defineIngredientes("[{\"nome\":\"Alface\",\"qtde\":1}, {\"nome\":\"Bacon\",\"qtde\":2}]");
+		
+		LanLanche lanche = montaLanche.retornaLanche();
+		
+		Assert.assertNotNull(lanche);		
+		Assert.assertEquals(3, lanche.getIngredientes().size());
+	}
+
 }

@@ -30,7 +30,7 @@ public class LanEstrutura {
 	}
 	
 	public static LanIngrediente getIngrediente(String nome) {
-		return todosIngredientes.get(nome);
+		return (nome == null ? null : todosIngredientes.get(nome));
 	}
 	
 	public static ArrayList<LanIngrediente> getIngredientes() {

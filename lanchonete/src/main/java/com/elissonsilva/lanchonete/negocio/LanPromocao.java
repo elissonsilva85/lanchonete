@@ -64,13 +64,13 @@ public class LanPromocao {
 		} catch(Exception e) {
 		}
 
-		if(qtdeCarne%3 == 0)
+		if(qtdeCarne >= 3)
 		{
 			int qtdeDesconto = qtdeCarne/3;
 			valorFinal -= qtdeDesconto * precoCarne;
 		}
 		
-		if(qtdeQueijo%3 == 0)
+		if(qtdeQueijo >= 3)
 		{
 			int qtdeDesconto = qtdeQueijo/3;
 			valorFinal -= qtdeDesconto * precoQueijo;

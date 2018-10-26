@@ -45,14 +45,15 @@ Considerações sobre arquivos e classes
 * `LanLanche` Contem o nome do lanche e um ArrayList de ```LanIngredientes``` que compoe o lanche.
 * `LanEstrutura` Classe com métodos estaticos que preparam os dados inicias do programa (veja [Estrutura Inicial](#estrutura-inicial))
 * `LanPromocao` Classe com 1 metodo que recebe 1 lanche por parametro e calcula o valor final considerando as regras das promoções.
-* `LanMontaLanche` ...
+* `LanMontaLanche` Classe utilizada para montar o lanche na seção *Monte seu lanche* e retornar o valor final após aplicada as promoções
 
 Considerações sobre o projeto
 ------------------
 
+* Aproveitei o projeto e pesquisei um pouco sobre AngularJS e apliquei alguns conceitos no layout.
+* Estou usando AngularJS para atualizar os valores na parte do *Monte seu Lanche*.
 * Optei por criar uma classe especifica para as promoções para isolar a regra de negocio da estrutura do lanche. Caberia até uma implementação de herança de forma que a regra de promoção fosse uma base para a classe do Lanche.
 * A classe de testes unitário verifica se a classe de estrutura dos Ingredientes e Lanche está funcionando corretamente, verifica o valor do lanche baseado nos ingredientes e verifica o valor dos lanches em cada uma das promoçoes.
-* 
 
 Estrutura Inicial
 ------------------

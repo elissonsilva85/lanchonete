@@ -10,6 +10,7 @@ public class LanLayoutIngrediente extends LanLayoutBasic {
 		super();
 		this.ingrediente = ingrediente;
 	}
+	
 	public String mostraLinha() {
 		
 		String html = "<tr>";
@@ -22,7 +23,7 @@ public class LanLayoutIngrediente extends LanLayoutBasic {
 	
     public String mostraOpcao() {
 		
-		String html = "<option>" + ingrediente.getNome() + "</option>";
+		String html = "{ \"nome\": \""+ingrediente.getNome()+"\", \"valor\": "+ingrediente.getValor()+" }";
 		
 		return html;
 	}

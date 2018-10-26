@@ -37,7 +37,15 @@ public class LanLanche {
 	}
 
 	public void addIngrediente(LanIngrediente ingrediente) {
-		ingredientes.add(ingrediente);
+		addIngrediente(ingrediente, 1);
+	}
+	
+	public void addIngrediente(LanIngrediente ingrediente, int qtde) {
+		
+		if(qtde < 0) qtde = 0;
+		
+		for(int i = 0; i < qtde; i++)
+			ingredientes.add(ingrediente);
 	}
 	
 	public double getPrecoIngredientes() {
