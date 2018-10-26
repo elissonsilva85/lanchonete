@@ -3,6 +3,15 @@ Lanchonete
 
 Programa de avaliação de código desenvolvido em Java rodando em um conteiner Docker com Tomcat 8.0. Para expor o Tomcat, foi utilizado um outro container Docker com NGINX configurado para realizar o proxy reverso da porta 80 para o Tomcat.
 
+Entregáveis
+------------------
+
+* Implementação dos requisitos;
+* Relatório de justificativas para escolha do design de código (veja [Considerações sobre o projeto](#considerações-sobre-o-projeto));
+* Os testes automatizados devem ser executados por algum modelo de integração contínua (utilizei *JUnit*);
+* O ambiente de execução da aplicação deve possuir um HTTP Proxying com nginx, redirecimendo as requisições da porta 80 para o server-side.
+* Ambiente virtualizado em Docker com scripts para execução do projeto (utilizei um script YAML para Docker Composer).
+
 O que precisa para rodar o projeto?
 ------------------
 _Essas versões foram as utilizadas no desenvolvimento_
@@ -42,7 +51,7 @@ Considerações sobre arquivos e classes
     └── ...	
 	
 
-* `.env` Contém apenas uma veriável de ambiente para parametrizar a porta de saída na hora de subir o docker que vai rodar o NGINX
+* `.env` Contém apenas uma variável de ambiente para parametrizar a porta de saída na hora de subir o docker que vai rodar o NGINX. No meu computador eu uso a porta 8080, mas o requisito era utilizar a porta 80, então criei esse arquivo de variável de ambiente para facilitar a parametrização.
 * `LanException` Apenas uma classe padrão de Exception para organizar os erros tratados na lógica desse programa.
 * `LanIngrediente` Classe responsável por armazenar o nome e o valor de 1 ingrediente.
 * `LanLanche` Contem o nome do lanche e um ArrayList de ```LanIngredientes``` que compoe o lanche.
